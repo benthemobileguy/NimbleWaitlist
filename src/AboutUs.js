@@ -15,9 +15,9 @@ const AboutUs = () => {
                         <h1 className="ml-4 text-2xl sm:text-3xl font-bold">Nimble</h1>
                     </div>
                     <nav>
-            <Link to="/" className="text-white mr-4 text-sm sm:text-base">Home</Link>
-            <Link to="/contact" className="text-white text-sm sm:text-base">Contact Us</Link>
-          </nav>
+                        <Link to="/" className="text-white mr-4 text-sm sm:text-base">Home</Link>
+                        <Link to="/contact" className="text-white text-sm sm:text-base">Contact Us</Link>
+                    </nav>
                 </div>
             </header>
 
