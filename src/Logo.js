@@ -1,8 +1,9 @@
 import React from 'react';
-import logo from './assets/logo.svg'; 
+import logo from './assets/logo.svg';
+
 const Logo = () => {
   return (
-    <img src={logo} alt="Nimble Logo" className="w-30 h-30 sm:w-25 sm:h-20" />
+    <img src={logo} alt="Nimble Logo" className="w-24 h-24 sm:w-16 sm:h-16" />
   );
 };
 

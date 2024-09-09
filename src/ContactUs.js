@@ -70,7 +70,7 @@ const ContactUs = () => {
           </p>
           <div className="text-lg sm:text-xl lg:text-2xl text-[#005051] mb-6">
             <p className="mb-4">Email: <strong>sales@getnimbleapp.com</strong></p>
-            <p>Phone: <strong>+1 800-123-4567</strong></p>
+            <p>Phone: <strong>+1 647-393-1143</strong></p>
           </div>
           <p className="text-lg sm:text-xl lg:text-2xl text-[#005051]">
             Stay connected with us on our social channels for the latest updates and announcements.
@@ -79,8 +79,9 @@ const ContactUs = () => {
       </main>
 
       <footer className="bg-[#005051] text-white py-4 text-center z-10">
-        <p className="mb-2 text-sm sm:text-base">Contact us: sales@getnimbleapp.com</p>
-        <p className="text-sm sm:text-base">© 2024 Nimble. All rights reserved.</p>
+        <p className="text-sm sm:text-base">
+          © 2024 <span className="font-bold">Nimble</span>. All rights reserved.
+        </p>
       </footer>
     </div>
   );

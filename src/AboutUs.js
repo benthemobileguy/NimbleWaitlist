@@ -74,8 +74,9 @@ const AboutUs = () => {
       </main>
 
       <footer className="bg-[#005051] text-white py-4 text-center z-10">
-        <p className="mb-2 text-sm sm:text-base">Contact us: sales@getnimbleapp.com</p>
-        <p className="text-sm sm:text-base">© 2024 Nimble. All rights reserved.</p>
+        <p className="text-sm sm:text-base">
+          © 2024 <span className="font-bold">Nimble</span>. All rights reserved.
+        </p>
       </footer>
     </div>
   );
