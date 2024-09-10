@@ -70,11 +70,7 @@ const ContactUs = () => {
           </p>
           <div className="text-lg sm:text-xl lg:text-2xl text-[#005051] mb-6">
             <p className="mb-4">Email: <strong>sales@getnimbleapp.com</strong></p>
-            <p>Phone: <strong>+1 647-393-1143</strong></p>
           </div>
-          <p className="text-lg sm:text-xl lg:text-2xl text-[#005051]">
-            Stay connected with us on our social channels for the latest updates and announcements.
-          </p>
         </div>
       </main>
 

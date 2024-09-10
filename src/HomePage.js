@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Logo from './Logo';
+import Logo from './Logo'; // For large screens
 import BackgroundPattern from './BackgroundPattern';
 import ClipLoader from 'react-spinners/ClipLoader'; 
+import logoSmall from './assets/logo.svg'; // Small logo
 
 const NavMenu = ({ isOpen, toggleMenu }) => (
   <div className={`fixed inset-0 bg-[#005051] z-20 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}>
@@ -30,7 +31,6 @@ const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(timer);
@@ -42,31 +42,36 @@ const HomePage = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col">
-      {/* Show Loader when loading */}
       {loading ? (
         <div className="flex flex-grow justify-center items-center">
-          <ClipLoader color="#005051" size={100} /> {/* Spinner style */}
+          <ClipLoader color="#005051" size={100} />
         </div>
       ) : (
         <>
-          {/* BackgroundPattern component */}
           <BackgroundPattern />
 
-          {/* Header */}
           <header className="bg-[#005051] text-white py-2 px-6 z-10">
             <div className="container mx-auto flex justify-between items-center">
-              <div className="flex items-center">
-                {/* Logo component */}
+              
+              {/* Small device logo on the left */}
+              <div className="sm:hidden flex items-center">
+                <img src={logoSmall} alt="Nimble Logo" className="w-16 h-auto" />
+              </div>
+
+              {/* Large screen logo and menu text horizontally centered */}
+              <div className="hidden sm:flex justify-center items-center w-full">
                 <Logo />
               </div>
 
               {/* Hamburger Button for small screens */}
-              <button className="text-white sm:hidden focus:outline-none" onClick={toggleMenu}>
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
+              <div className="absolute right-6 top-6 sm:hidden">
+                <button className="text-white focus:outline-none" onClick={toggleMenu}>
+                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+              </div>
 
-              {/* Links for larger screens */}
-              <nav className="hidden sm:flex space-x-6">
+              {/* Links for larger screens - Center aligned */}
+              <nav className="hidden sm:flex absolute right-6 top-6 space-x-6">
                 <Link to="/" className="text-white text-sm sm:text-base font-extrabold">Home</Link>
                 <Link to="/about" className="text-white text-sm sm:text-base font-extrabold">About Us</Link>
                 <Link to="/contact" className="text-white text-sm sm:text-base font-extrabold">Contact Us</Link>
@@ -74,10 +79,8 @@ const HomePage = () => {
             </div>
           </header>
 
-          {/* Expandable menu for small screens */}
           <NavMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
-          {/* Main Content */}
           <main className="flex-grow flex flex-col items-center justify-center text-center px-4 py-8 z-10">
             <div className="max-w-4xl w-full">
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-[#003030]">Shopping Made Simple</h2>
@@ -94,21 +97,20 @@ const HomePage = () => {
                   href="https://docs.google.com/forms/d/1mJFtwThAP2c0mIf-mYkcfU5GwbPYk60-QvFawSwX5qk/prefill"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#005051] hover:bg-[#003030] text-white font-bold py-4 px-8 rounded-3xl text-lg sm:text-xl transition-colors duration-300 w-full text-center"
+                  className="bg-[#005051] hover:bg-[#003030] text-white font-bold py-4 px-8 rounded-3xl text-lg sm:text-xl transition-colors duration-300 w-full text-center sweet-sans-font"
                 >
                   Join the Waitlist
                 </a>
 
                 <Link
                   to="/contact"
-                  className="bg-[#005051] hover:bg-[#003030] text-white font-bold py-4 px-8 rounded-3xl text-lg sm:text-xl transition-colors duration-300 w-full text-center">
+                  className="bg-[#005051] hover:bg-[#003030] text-white font-bold py-4 px-8 rounded-3xl text-lg sm:text-xl transition-colors duration-300 w-full text-center sweet-sans-font">
                   Contact Us
                 </Link>
               </div>
             </div>
           </main>
 
-          {/* Footer */}
           <footer className="bg-[#005051] text-white py-4 text-center z-10">
             <p className="text-sm sm:text-base">
               © 2024 <span className="font-bold">Nimble</span>. All rights reserved.
@@ -121,3 +123,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
