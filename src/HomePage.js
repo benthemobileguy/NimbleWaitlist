@@ -3,7 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo'; // For large screens
 import BackgroundPattern from './BackgroundPattern';
-import ClipLoader from 'react-spinners/ClipLoader'; 
+import ClipLoader from 'react-spinners/ClipLoader';
 import logoSmall from './assets/logo.svg'; // Small logo
 
 const NavMenu = ({ isOpen, toggleMenu }) => (
@@ -52,7 +52,7 @@ const HomePage = () => {
 
           <header className="bg-[#005051] text-white py-2 px-6 z-10">
             <div className="container mx-auto flex justify-between items-center">
-              
+
               {/* Small device logo on the left */}
               <div className="sm:hidden flex items-center">
                 <img src={logoSmall} alt="Nimble Logo" className="w-16 h-auto" />
