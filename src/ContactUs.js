@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import Header from './Header';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
+import logoSmall from './assets/logo.svg';
 import BackgroundPattern from './BackgroundPattern';
 
 const NavMenu = ({ isOpen, toggleMenu }) => (
@@ -36,28 +38,12 @@ const ContactUs = () => {
     <div className="relative min-h-screen flex flex-col">
       <BackgroundPattern />
 
-      <header className="bg-[#005051] text-white py-4 px-6 z-10">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center">
-            <Logo />
-          </div>
+      <Header
+            isMenuOpen={isMenuOpen}
+            toggleMenu={toggleMenu}
+            logoSmall={logoSmall}
+          />
 
-          {/* Hamburger Button for small screens */}
-          <button
-            className="text-white sm:hidden focus:outline-none"
-            onClick={toggleMenu}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-
-          {/* Links for larger screens */}
-          <nav className="hidden sm:flex space-x-6">
-            <Link to="/" className="text-white text-sm sm:text-base font-extrabold">Home</Link>
-            <Link to="/about" className="text-white text-sm sm:text-base font-extrabold">About Us</Link>
-            <Link to="/contact" className="text-white text-sm sm:text-base font-extrabold">Contact Us</Link>
-          </nav>
-        </div>
-      </header>
 
       {/* Expandable menu for small screens */}
       <NavMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
@@ -66,7 +52,7 @@ const ContactUs = () => {
         <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg p-8 sm:p-12">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-[#003030]">Contact Us</h2>
           <p className="text-lg sm:text-xl lg:text-2xl text-[#005051] mb-6">
-            We'd love to hear from you! Whether you have questions, feedback, or partnership inquiries, feel free to reach out to us. We're here to help!
+            Have any questions or need assistance? Our team is ready to support you with anything you need, from app features to troubleshooting. Don’t hesitate to reach out to us at:
           </p>
           <div className="text-lg sm:text-xl lg:text-2xl text-[#005051] mb-6">
             <p className="mb-4">Email: <strong>sales@getnimbleapp.com</strong></p>

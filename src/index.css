@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 @font-face {
   font-family: 'Sweet Sans';
   src: url('./assets/sweet_sans_regular.otf') format('opentype');
@@ -9,11 +11,12 @@
   font-style: normal;
 }
 
-body {
-  margin: 0;
-  font-family: 'Sweet Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  body {
+    @apply m-0 antialiased font-roboto sm:font-sweet-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 code {

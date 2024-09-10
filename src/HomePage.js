@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Logo from './Logo'; // For large screens
+import Header from './Header';
+import Logo from './Logo';
+import logoSmall from './assets/logo.svg';
 import BackgroundPattern from './BackgroundPattern';
-import ClipLoader from 'react-spinners/ClipLoader'; 
-import logoSmall from './assets/logo.svg'; // Small logo
+import ClipLoader from 'react-spinners/ClipLoader';
 
 const NavMenu = ({ isOpen, toggleMenu }) => (
   <div className={`fixed inset-0 bg-[#005051] z-20 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}>
@@ -50,34 +51,12 @@ const HomePage = () => {
         <>
           <BackgroundPattern />
 
-          <header className="bg-[#005051] text-white py-2 px-6 z-10">
-            <div className="container mx-auto flex justify-between items-center">
-              
-              {/* Small device logo on the left */}
-              <div className="sm:hidden flex items-center">
-                <img src={logoSmall} alt="Nimble Logo" className="w-16 h-auto" />
-              </div>
 
-              {/* Large screen logo and menu text horizontally centered */}
-              <div className="hidden sm:flex justify-center items-center w-full">
-                <Logo />
-              </div>
-
-              {/* Hamburger Button for small screens */}
-              <div className="absolute right-6 top-6 sm:hidden">
-                <button className="text-white focus:outline-none" onClick={toggleMenu}>
-                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-              </div>
-
-              {/* Links for larger screens - Center aligned */}
-              <nav className="hidden sm:flex absolute right-6 top-6 space-x-6">
-                <Link to="/" className="text-white text-sm sm:text-base font-extrabold">Home</Link>
-                <Link to="/about" className="text-white text-sm sm:text-base font-extrabold">About Us</Link>
-                <Link to="/contact" className="text-white text-sm sm:text-base font-extrabold">Contact Us</Link>
-              </nav>
-            </div>
-          </header>
+          <Header
+            isMenuOpen={isMenuOpen}
+            toggleMenu={toggleMenu}
+            logoSmall={logoSmall}
+          />
 
           <NavMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
@@ -93,18 +72,20 @@ const HomePage = () => {
               <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 text-[#005051]">Coming Soon!</div>
 
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full max-w-2xl mx-auto">
+                {/* Modified Join the Waitlist Button */}
                 <a
                   href="https://docs.google.com/forms/d/1mJFtwThAP2c0mIf-mYkcfU5GwbPYk60-QvFawSwX5qk/prefill"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#005051] hover:bg-[#003030] text-white font-bold py-4 px-8 rounded-3xl text-lg sm:text-xl transition-colors duration-300 w-full text-center sweet-sans-font"
+                  className="bg-[#005051] hover:bg-[#003030] text-white font-bold py-4 px-8 rounded-full flex items-center justify-center text-lg sm:text-xl transition-colors duration-300 w-full text-center sweet-sans-font"
                 >
                   Join the Waitlist
                 </a>
 
+                {/* Contact Us Button */}
                 <Link
                   to="/contact"
-                  className="bg-[#005051] hover:bg-[#003030] text-white font-bold py-4 px-8 rounded-3xl text-lg sm:text-xl transition-colors duration-300 w-full text-center sweet-sans-font">
+                  className="bg-[#005051] hover:bg-[#003030] text-white font-bold py-4 px-8 rounded-full text-lg sm:text-xl transition-colors duration-300 w-full text-center sweet-sans-font">
                   Contact Us
                 </Link>
               </div>

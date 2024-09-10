@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
+import logoSmall from './assets/logo.svg';
+import Header from './Header';
 import BackgroundPattern from './BackgroundPattern';
 
 const NavMenu = ({ isOpen, toggleMenu }) => (
@@ -36,29 +38,11 @@ const AboutUs = () => {
     <div className="relative min-h-screen flex flex-col">
       <BackgroundPattern />
 
-      <header className="bg-[#005051] text-white py-4 px-6 z-10">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center">
-            <Logo />
-
-          </div>
-
-          {/* Hamburger Button for small screens */}
-          <button
-            className="text-white sm:hidden focus:outline-none"
-            onClick={toggleMenu}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-
-          {/* Links for larger screens */}
-          <nav className="hidden sm:flex space-x-6">
-            <Link to="/" className="text-white text-sm sm:text-base font-extrabold">Home</Link>
-            <Link to="/about" className="text-white text-sm sm:text-base font-extrabold">About Us</Link>
-            <Link to="/contact" className="text-white text-sm sm:text-base font-extrabold">Contact Us</Link>
-          </nav>
-        </div>
-      </header>
+      <Header
+        isMenuOpen={isMenuOpen}
+        toggleMenu={toggleMenu}
+        logoSmall={logoSmall}
+      />
 
       {/* Expandable menu for small screens */}
       <NavMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
