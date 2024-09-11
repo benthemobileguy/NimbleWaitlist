@@ -39,10 +39,10 @@ const ContactUs = () => {
       <BackgroundPattern />
 
       <Header
-            isMenuOpen={isMenuOpen}
-            toggleMenu={toggleMenu}
-            logoSmall={logoSmall}
-          />
+        isMenuOpen={isMenuOpen}
+        toggleMenu={toggleMenu}
+        logoSmall={logoSmall}
+      />
 
 
       {/* Expandable menu for small screens */}
@@ -55,7 +55,7 @@ const ContactUs = () => {
             Have any questions or need assistance? Our team is ready to support you with anything you need, from app features to troubleshooting. Don’t hesitate to reach out to us at:
           </p>
           <div className="text-lg sm:text-xl lg:text-2xl text-[#005051] mb-6">
-            <p className="mb-4">Email: <strong>sales@getnimbleapp.com</strong></p>
+            <p className="mb-4"><strong>sales@getnimbleapp.com</strong></p>
           </div>
         </div>
       </main>

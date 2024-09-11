@@ -5,11 +5,11 @@ import Logo from './Logo';
 
 const Header = ({ isMenuOpen, toggleMenu, logoSmall }) => {
   return (
-    <header className="bg-[#005051] text-white py-6 px-6 z-10 font-roboto sm:font-sweet-sans">
-      <div className="container mx-auto relative flex justify-between items-center">
+    <header className="bg-[#005051] text-white py-2 sm:py-2 px-4 z-10 font-roboto sm:font-sweet-sans">
+      <div className="container mx-auto relative flex justify-between items-center h-14 sm:h-14">
         {/* Small device logo on the left */}
         <div className="sm:hidden flex items-center">
-          <img src={logoSmall} alt="Nimble Logo" className="w-16 h-auto" />
+          <img src={logoSmall} alt="Nimble Logo" className="w-26 h-20" />
         </div>
 
         {/* Large screen logo - Centered */}
@@ -20,7 +20,7 @@ const Header = ({ isMenuOpen, toggleMenu, logoSmall }) => {
         {/* Hamburger Button for small screens */}
         <div className="sm:hidden">
           <button className="text-white focus:outline-none" onClick={toggleMenu}>
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
